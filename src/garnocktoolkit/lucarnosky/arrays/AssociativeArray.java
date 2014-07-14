@@ -1,5 +1,6 @@
 package garnocktoolkit.lucarnosky.arrays;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -68,6 +69,18 @@ public class AssociativeArray {
 		    	return e.getKey();
 		}
 		return null;
+	}
+	
+	/*
+	 * Get all index of the current associative array
+	 * return an arraylist of string
+	 */
+	public ArrayList<String> getAllIndex(){
+		ArrayList<String> indexes = new ArrayList<String>();
+		for ( String key : associativeArray.keySet() ) {
+		    indexes.add(key);
+		}
+		return indexes;
 	}
 	
 	
