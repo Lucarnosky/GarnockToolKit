@@ -47,7 +47,7 @@ public class AssociativeArray {
 	 * Return if the specified value is contained in the array
 	 * @param value to check if is contained in the array
 	 */
-	public boolean contains(Object value){
+	public boolean containsValue(Object value){
 		return associativeArray.containsValue(value);
 	}
 	
@@ -55,7 +55,7 @@ public class AssociativeArray {
 	 * Return if the specified index is contained in the array
 	 * @param indexName to check if is contained in the array
 	 */
-	public boolean contains(String indexName){
+	public boolean containsIndex(String indexName){
 		return associativeArray.containsKey(indexName);
 	}
 	
