@@ -12,10 +12,7 @@ public class AssociativeArray {
 	 */
 	Map<String, Object> associativeArray = new HashMap<String, Object>();
 	private int nIndex = 0;
-	
-	public AssociativeArray(){
-		
-	}
+
 	
 	/*
 	 * Add to the specified index the specified value
@@ -75,13 +72,49 @@ public class AssociativeArray {
 	 * Get all index of the current associative array
 	 * return an arraylist of string
 	 */
-	public ArrayList<String> getAllIndex(){
+	public ArrayList<String> getAllIndexes(){
 		ArrayList<String> indexes = new ArrayList<String>();
 		for ( String key : associativeArray.keySet() ) {
 		    indexes.add(key);
 		}
 		return indexes;
 	}
+
+	/*
+	 * Get all values in the current associative array
+	 * return an arraylist of object
+	 */
+	public ArrayList<Object>getAllValues(){
+		ArrayList<Object> values = new ArrayList<Object>();
+		for ( Object value : associativeArray.values() ) {
+			values.add(value);
+		}
+		return values;
+	}
+	
+	/*
+	 * Return the size of the array
+	 * return an integer
+	 */
+	public int getSize(){
+		return associativeArray.size();
+	}
+	
+	/*
+	 * clear the associative array
+	 */
+	public void clear(){
+		associativeArray.clear();
+	}
+
+	/*
+	 * Remove element at the specified index
+	 * @param index to remove
+	 */
+	public void removeByIndex(String index){
+		associativeArray.remove(index);
+	}
+
 	
 	
 }
