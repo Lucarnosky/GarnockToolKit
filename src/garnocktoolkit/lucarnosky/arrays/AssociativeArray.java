@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AssociativeArray {
+@SuppressWarnings("hiding")
+public class AssociativeArray<String,Object> {
 
 	/*
 	 * Associative Array works as associative array in php
@@ -13,6 +14,9 @@ public class AssociativeArray {
 	Map<String, Object> associativeArray = new HashMap<String, Object>();
 	private int nIndex = 0;
 
+	public AssociativeArray(){
+		
+	}
 	
 	/*
 	 * Add to the specified index the specified value
@@ -27,8 +31,9 @@ public class AssociativeArray {
 	 * Add the specified value at a normal int value
 	 * @param value the object to save 
 	 */
+	@SuppressWarnings("unchecked")
 	public void add(Object value){
-		associativeArray.put(String.valueOf(nIndex), value);
+		associativeArray.put((String) Integer.toString(nIndex), value);
 		nIndex ++;
 	}
 	
@@ -72,7 +77,7 @@ public class AssociativeArray {
 	 * Get all index of the current associative array
 	 * return an arraylist of string
 	 */
-	public ArrayList<String> getAllIndexes(){
+	public ArrayList<String> parseIndexes(){
 		ArrayList<String> indexes = new ArrayList<String>();
 		for ( String key : associativeArray.keySet() ) {
 		    indexes.add(key);
@@ -84,7 +89,7 @@ public class AssociativeArray {
 	 * Get all values in the current associative array
 	 * return an arraylist of object
 	 */
-	public ArrayList<Object>getAllValues(){
+	public ArrayList<Object>parseValues(){
 		ArrayList<Object> values = new ArrayList<Object>();
 		for ( Object value : associativeArray.values() ) {
 			values.add(value);
@@ -114,7 +119,23 @@ public class AssociativeArray {
 	public void removeByIndex(String index){
 		associativeArray.remove(index);
 	}
-
 	
+	/*
+	 * Remove element at the specified indexes
+	 * @param index array to remove
+	 */
+	public void removeByIndex(String[] index){
+		for (int i = 0; i < index.length ; i ++ ) {
+			associativeArray.remove(index[i]);
+		}
+	}
+
+	/*
+	 * Check if the associative array contains something
+	 * return boolean
+	 */
+	public boolean isEmpty(){
+		return (associativeArray.isEmpty());
+	}
 	
 }
