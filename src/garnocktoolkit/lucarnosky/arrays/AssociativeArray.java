@@ -1,5 +1,7 @@
 package garnocktoolkit.lucarnosky.arrays;
 
+import garnocktoolkit.lucarnosky.exception.OutOfBoundException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,13 +28,12 @@ public class AssociativeArray<String,Object> {
 	 *
 	 * @param indexName the index name
 	 * @param value the value to add
+	 * @throws OutOfBoundException 
 	 */
-	public void add(String indexName, Object value){
+	public void add(String indexName, Object value) throws OutOfBoundException{
 		if(size == -1 || this.getSize() < size){
 			associativeArray.put(indexName, value);
-		}else{
-			System.err.println("Associative Array Overflow - Change the size or set it to -1");
-		}
+		}else throw(new OutOfBoundException());
 	}
 	
 
@@ -40,16 +41,14 @@ public class AssociativeArray<String,Object> {
 	 * Adds the specified value.
 	 *
 	 * @param value the value to add
+	 * @throws OutOfBoundException 
 	 */
 	@SuppressWarnings("unchecked")
-	public void add(Object value){
+	public void add(Object value) throws OutOfBoundException{
 		if(size == -1 || this.getSize() < size){
 			associativeArray.put((String) Integer.toString(nIndex), value);
 			nIndex ++;
-		}else{
-			
-			System.err.println("Associative Array Overflow - Change the size or set it to -1");
-		}
+		}else throw(new OutOfBoundException());
 		
 	}
 	
