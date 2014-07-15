@@ -4,66 +4,93 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The Class AssociativeArray.
+ *
+ * Should works as PHP associative array
+ * 
+ * @param <String> the generic type
+ * @param <Object> the generic type
+ */
 @SuppressWarnings("hiding")
 public class AssociativeArray<String,Object> {
 
-	/*
-	 * Associative Array works as associative array in php
-	 * the index can be a text instead of a number
-	 */
+	/** The associative array. */
 	Map<String, Object> associativeArray = new HashMap<String, Object>();
-	private int nIndex = 0;
+	int size = - 1;
+	/** The automatic index. */
+	int nIndex = 0;
 
-	public AssociativeArray(){
-		
-	}
-	
-	/*
-	 * Add to the specified index the specified value
-	 * @param indexName the name of the index
-	 * @param value the object to save in the specified index
+	/**
+	 * Adds the.
+	 *
+	 * @param indexName the index name
+	 * @param value the value to add
 	 */
 	public void add(String indexName, Object value){
-		associativeArray.put(indexName, value);
+		if(size == -1 || this.getSize() < size){
+			associativeArray.put(indexName, value);
+		}else{
+			System.err.println("Associative Array Overflow - Change the size or set it to -1");
+		}
 	}
 	
-	/*
-	 * Add the specified value at a normal int value
-	 * @param value the object to save 
+
+	/**
+	 * Adds the specified value.
+	 *
+	 * @param value the value to add
 	 */
 	@SuppressWarnings("unchecked")
 	public void add(Object value){
-		associativeArray.put((String) Integer.toString(nIndex), value);
-		nIndex ++;
+		if(size == -1 || this.getSize() < size){
+			associativeArray.put((String) Integer.toString(nIndex), value);
+			nIndex ++;
+		}else{
+			
+			System.err.println("Associative Array Overflow - Change the size or set it to -1");
+		}
+		
 	}
 	
-	/*
-	 * Return the object stored in the specified index
-	 * @param indexname The index to read
+
+	/**
+	 * Gets the value at the specified index.
+	 *
+	 * @param indexName the index name
+	 * @return the object to get
 	 */
 	public Object get(String indexName){
 		return associativeArray.get(indexName);
 	}
 	
-	/*
-	 * Return if the specified value is contained in the array
-	 * @param value to check if is contained in the array
+
+	/**
+	 * Check if a value is contained in the associative array.
+	 *
+	 * @param value the value to search
+	 * @return true, if successful
 	 */
 	public boolean containsValue(Object value){
 		return associativeArray.containsValue(value);
 	}
 	
-	/*
-	 * Return if the specified index is contained in the array
-	 * @param indexName to check if is contained in the array
+
+	/**
+	 * Check if an index is contained in the associative array.
+	 *
+	 * @param indexName the index name to search
+	 * @return true, if successful
 	 */
 	public boolean containsIndex(String indexName){
 		return associativeArray.containsKey(indexName);
 	}
 	
-	/*
-	 * Return the index of the specified value
-	 * @param value to get the index
+	/**
+	 * Gets the element index.
+	 *
+	 * @param value the value
+	 * @return the element index
 	 */
 	public String getElementIndex(Object value){
 		for (Map.Entry<String, Object> e : associativeArray.entrySet()) {
@@ -73,9 +100,10 @@ public class AssociativeArray<String,Object> {
 		return null;
 	}
 	
-	/*
-	 * Get all index of the current associative array
-	 * return an arraylist of string
+	/**
+	 * Parses the indexes.
+	 *
+	 * @return the array list
 	 */
 	public ArrayList<String> parseIndexes(){
 		ArrayList<String> indexes = new ArrayList<String>();
@@ -85,9 +113,10 @@ public class AssociativeArray<String,Object> {
 		return indexes;
 	}
 
-	/*
-	 * Get all values in the current associative array
-	 * return an arraylist of object
+	/**
+	 * Parses the values.
+	 *
+	 * @return the array list
 	 */
 	public ArrayList<Object>parseValues(){
 		ArrayList<Object> values = new ArrayList<Object>();
@@ -97,32 +126,35 @@ public class AssociativeArray<String,Object> {
 		return values;
 	}
 	
-	/*
-	 * Return the size of the array
-	 * return an integer
+	/**
+	 * Gets the size.
+	 *
+	 * @return the size
 	 */
 	public int getSize(){
 		return associativeArray.size();
 	}
 	
-	/*
-	 * clear the associative array
+	/**
+	 * Clear the associative array.
 	 */
 	public void clear(){
 		associativeArray.clear();
 	}
 
-	/*
-	 * Remove element at the specified index
-	 * @param index to remove
+	/**
+	 * Removes the element by specified index.
+	 *
+	 * @param index the index
 	 */
 	public void removeByIndex(String index){
 		associativeArray.remove(index);
 	}
 	
-	/*
-	 * Remove element at the specified indexes
-	 * @param index array to remove
+	/**
+	 * Removes the element by index array.
+	 *
+	 * @param index the index
 	 */
 	public void removeByIndex(String[] index){
 		for (int i = 0; i < index.length ; i ++ ) {
@@ -130,12 +162,22 @@ public class AssociativeArray<String,Object> {
 		}
 	}
 
-	/*
-	 * Check if the associative array contains something
-	 * return boolean
+	/**
+	 * Checks if is empty.
+	 *
+	 * @return true, if is empty
 	 */
 	public boolean isEmpty(){
 		return (associativeArray.isEmpty());
+	}
+	
+	/**
+	 * Set Associative Array max size
+	 * Set the size to -1 to unlimited size
+	 * @param size the size of the associative array
+	 */
+	public void setSize(int size){
+		this.size = size;
 	}
 	
 }
