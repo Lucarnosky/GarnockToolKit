@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class AssociativeArray.
  *
@@ -19,29 +20,31 @@ public class AssociativeArray<String,Object> {
 
 	/** The associative array. */
 	Map<String, Object> associativeArray = new HashMap<String, Object>();
+	
+	/** The size. */
 	int size = - 1;
-	/** The automatic index. */
+	/** The automatic key. */
 	int nIndex = 0;
 
 	/**
-	 * Adds the.
+	 * Adds the value at the specified key.
 	 *
-	 * @param indexName the index name
-	 * @param value the value to add
-	 * @throws OutOfBoundException 
+	 * @param keyName the name of the key
+	 * @param value the value to add at the specified key
+	 * @throws OutOfBoundException the out of bound exception
 	 */
-	public void add(String indexName, Object value) throws OutOfBoundException{
+	public void add(String keyName, Object value) throws OutOfBoundException{
 		if(size == -1 || this.getSize() < size){
-			associativeArray.put(indexName, value);
+			associativeArray.put(keyName, value);
 		}else throw(new OutOfBoundException());
 	}
 	
 
 	/**
-	 * Adds the specified value.
+	 * Adds the specified value to a number generated key.
 	 *
 	 * @param value the value to add
-	 * @throws OutOfBoundException 
+	 * @throws OutOfBoundException the out of bound exception
 	 */
 	@SuppressWarnings("unchecked")
 	public void add(Object value) throws OutOfBoundException{
@@ -52,15 +55,14 @@ public class AssociativeArray<String,Object> {
 		
 	}
 	
-
 	/**
-	 * Gets the value at the specified index.
+	 * Gets the value at the specified key.
 	 *
-	 * @param indexName the index name
+	 * @param keyName the key name
 	 * @return the object to get
 	 */
-	public Object get(String indexName){
-		return associativeArray.get(indexName);
+	public Object get(String keyName){
+		return associativeArray.get(keyName);
 	}
 	
 
@@ -74,24 +76,23 @@ public class AssociativeArray<String,Object> {
 		return associativeArray.containsValue(value);
 	}
 	
-
 	/**
-	 * Check if an index is contained in the associative array.
+	 * Check if an key is contained in the associative array.
 	 *
-	 * @param indexName the index name to search
+	 * @param keyName the key name to search
 	 * @return true, if successful
 	 */
-	public boolean containsIndex(String indexName){
-		return associativeArray.containsKey(indexName);
+	public boolean containskey(String keyName){
+		return associativeArray.containsKey(keyName);
 	}
 	
 	/**
-	 * Gets the element index.
+	 * Gets the element key.
 	 *
 	 * @param value the value
-	 * @return the element index
+	 * @return the element key
 	 */
-	public String getElementIndex(Object value){
+	public String getElementKey(Object value){
 		for (Map.Entry<String, Object> e : associativeArray.entrySet()) {
 		    if(e.getValue() == value)
 		    	return e.getKey();
@@ -100,16 +101,16 @@ public class AssociativeArray<String,Object> {
 	}
 	
 	/**
-	 * Parses the indexes.
+	 * Parses the keys.
 	 *
 	 * @return the array list
 	 */
-	public ArrayList<String> parseIndexes(){
-		ArrayList<String> indexes = new ArrayList<String>();
+	public ArrayList<String> parsekeys(){
+		ArrayList<String> keyes = new ArrayList<String>();
 		for ( String key : associativeArray.keySet() ) {
-		    indexes.add(key);
+		    keyes.add(key);
 		}
-		return indexes;
+		return keyes;
 	}
 
 	/**
@@ -142,22 +143,22 @@ public class AssociativeArray<String,Object> {
 	}
 
 	/**
-	 * Removes the element by specified index.
+	 * Removes the element by specified key.
 	 *
-	 * @param index the index
+	 * @param key the key
 	 */
-	public void removeByIndex(String index){
-		associativeArray.remove(index);
+	public void removeBykey(String key){
+		associativeArray.remove(key);
 	}
 	
 	/**
-	 * Removes the element by index array.
+	 * Removes the element by key array.
 	 *
-	 * @param index the index
+	 * @param key the key
 	 */
-	public void removeByIndex(String[] index){
-		for (int i = 0; i < index.length ; i ++ ) {
-			associativeArray.remove(index[i]);
+	public void removeBykey(String[] key){
+		for (int i = 0; i < key.length ; i ++ ) {
+			associativeArray.remove(key[i]);
 		}
 	}
 
@@ -172,7 +173,8 @@ public class AssociativeArray<String,Object> {
 	
 	/**
 	 * Set Associative Array max size
-	 * Set the size to -1 to unlimited size
+	 * Set the size to -1 to unlimited size.
+	 *
 	 * @param size the size of the associative array
 	 */
 	public void setSize(int size){
