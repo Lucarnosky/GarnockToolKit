@@ -18,4 +18,5 @@ public class OutOfBoundException extends RuntimeException{
 	public OutOfBoundException(){
 		super("Index out of bounds - Set size to -1 or extends the size");
 	}
+	
 }
