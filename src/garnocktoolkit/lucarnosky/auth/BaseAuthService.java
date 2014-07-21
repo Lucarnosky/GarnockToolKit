@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 /**
  * The Class BaseAuthService.
  * @author Matteo Lucarno
- * @version 1.0.0
+ * @version 1.0.1
  */
 public class BaseAuthService extends JFrame{
 
@@ -39,7 +39,7 @@ public class BaseAuthService extends JFrame{
 	 * Checks if is allowed.
 	 *
 	 * @param elementToCheck the element to check
-	 * @return true, if is allowed
+	 * @return true, if is in the allowed list
 	 */
 	public boolean isAllowed(String elementToCheck){
 		return allowed.contains(elementToCheck);
@@ -59,15 +59,8 @@ public class BaseAuthService extends JFrame{
 		this.setVisible(false);
 	}
 	
-	/* (non-Javadoc)
-	 * @see java.awt.Window#setSize(int, int)
-	 */
-	public void setSize(int width, int height){
-		//this.setSize(32, 32);
-	}
-	
 	/**
-	 * Update window.
+	 * Update window graphic.
 	 */
 	public void updateWindow(){
 		repaint();
@@ -76,7 +69,7 @@ public class BaseAuthService extends JFrame{
 	/**
 	 * Sets the allowed.
 	 *
-	 * @param allowed the new allowed
+	 * @param allowed the new allowed list
 	 */
 	public void setAllowed(ArrayList<String> allowed){
 		this.allowed = allowed;
@@ -85,7 +78,7 @@ public class BaseAuthService extends JFrame{
 	/**
 	 * Sets the allowed.
 	 *
-	 * @param allowed the new allowed
+	 * @param allowed Add new allowed in the allowed list
 	 */
 	public void setAllowed(String allowed){
 		this.allowed.add(allowed);
@@ -94,12 +87,19 @@ public class BaseAuthService extends JFrame{
 	/**
 	 * Log in.
 	 *
-	 * @param username the username
+	 * @param username the username to check
+	 * @return 1 if is allowed, -1 if is not allowed
+	 * @throws NoAllowedException if the allowed list is empty
 	 */
-	public void logIn(String username){
+	public int logIn(String username){
+		if(allowed.isEmpty())
+			throw(new NoAllowedException());
 		if(isAllowed(username)){
 			System.out.println("Allowed can proceed");
-		}else throw(new NoAllowedException());
+			return 1;
+		}else {
+			return -1;
+		}
 	}
 	
 }
