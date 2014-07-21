@@ -9,6 +9,8 @@ import java.util.Map;
 // TODO: Auto-generated Javadoc
 /**
  * The Class AssociativeArray.
+ *@author Matteo Lucarno
+ *@version 1.0.4
  *
  * Should works as PHP associative array
  * 

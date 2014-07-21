@@ -3,9 +3,10 @@
  */
 package garnocktoolkit.lucarnosky.exception;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class OutOfBoundException.
+ * @author Matteo Lucarno
+ * @version 1.0.0
  */
 public class OutOfBoundException extends RuntimeException{
 
