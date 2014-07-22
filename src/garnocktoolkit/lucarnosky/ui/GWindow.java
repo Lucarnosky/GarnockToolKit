@@ -121,9 +121,10 @@ public class GWindow extends JFrame{
 	}
 	
 	/**
-	 * Adds the top component.
+	 * Adds the component.
 	 *
-	 * @param topComponent the top component
+	 * @param component the component
+	 * @param location the location avaiable in the Location enum
 	 */
 	public void addComponent(Component component, Location location){
 		
@@ -166,6 +167,11 @@ public class GWindow extends JFrame{
 		updateWindow();
 	}
 	
+	/**
+	 * Removes the component.
+	 *
+	 * @param location the location avaiable in the Location enum
+	 */
 	public void removeComponent(Location location){
 		switch(location){
 		case TOP:
