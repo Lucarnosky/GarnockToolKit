@@ -8,10 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import garnocktoolkit.lucarnosky.auth.BaseAuthService;
-import garnocktoolkit.lucarnosky.auth.TabbedWindow;
 import garnocktoolkit.lucarnosky.exception.OutOfBoundException;
+import garnocktoolkit.lucarnosky.ui.GWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ToolkitTest.
  */
@@ -31,29 +30,24 @@ public class ToolkitTest {
 	 * @throws OutOfBoundException the out of bound exception
 	 */
 	public static void main(String[] args) throws OutOfBoundException {
-		final TabbedWindow base = new TabbedWindow();
-		//base.setAllowed("Check");
+		final GWindow base = new GWindow();
 		base.changeDimension(500, 500);
 		base.screenLocation(BaseAuthService.CENTER_LOCATION);
 		base.windowTitle("Prova");
 		JPanel tp = new JPanel();
 		JPanel b = new JPanel();
 		JButton b1 = new JButton("Culo");
-		//JButton b2 = new JButton("Culo 2");
 		b1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				base.removeLeft();
+				base.removeComponent(GWindow.Location.BOTTOM);
 			}
 		});
+		b.setBackground(Color.yellow);
 		tp.add(b1);
 		tp.setBackground(Color.black);
-		
-		
-		base.addTopComponent(b);
-		//base.addBottomComponent(tp);
-		//base.addLeftComponent(tp);
+		base.addComponent(tp,GWindow.Location.TOP);
 		base.showWindow();
 	}
 }

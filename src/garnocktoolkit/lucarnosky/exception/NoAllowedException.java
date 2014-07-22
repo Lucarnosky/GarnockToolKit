@@ -17,6 +17,7 @@ public class NoAllowedException extends RuntimeException{
 	 */
 	public NoAllowedException(){
 		super("No allowed in allowed list");
+		System.exit(-1);
 	}
 
 }

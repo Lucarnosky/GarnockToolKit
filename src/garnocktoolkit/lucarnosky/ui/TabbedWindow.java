@@ -1,4 +1,6 @@
-package garnocktoolkit.lucarnosky.auth;
+package garnocktoolkit.lucarnosky.ui;
+
+import garnocktoolkit.lucarnosky.auth.BaseAuthService;
 
 // TODO: Auto-generated Javadoc
 /**
