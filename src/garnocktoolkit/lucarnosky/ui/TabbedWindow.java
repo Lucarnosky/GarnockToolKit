@@ -1,7 +1,5 @@
 package garnocktoolkit.lucarnosky.ui;
 
-import garnocktoolkit.lucarnosky.auth.BaseAuthService;
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class TabbedWindow.
@@ -9,7 +7,7 @@ import garnocktoolkit.lucarnosky.auth.BaseAuthService;
  * @version 1.0.0
  */
 
-public class TabbedWindow extends BaseAuthService{
+public class TabbedWindow extends GWindow{
 
 	/**
 	 * 
