@@ -6,9 +6,9 @@ package garnocktoolkit.lucarnosky.exception;
 /**
  * The Class OutOfBoundException.
  * @author Matteo Lucarno
- * @version 1.0.0
+ * @version 1.0.2
  */
-public class OutOfBoundException extends RuntimeException{
+public class OutOfBoundException extends GException{
 
 	/**  Exception thrown when index is out of bound. */
 	private static final long serialVersionUID = 0;

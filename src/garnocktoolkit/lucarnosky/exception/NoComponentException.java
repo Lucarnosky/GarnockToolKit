@@ -1,6 +1,6 @@
 package garnocktoolkit.lucarnosky.exception;
 
-public class NoComponentException extends RuntimeException{
+public class NoComponentException extends GException{
 
 	/**
 	 * 
@@ -9,7 +9,6 @@ public class NoComponentException extends RuntimeException{
 	
 	public NoComponentException(){
 		super("No component in the specified location");
-		System.exit(-1);
 	}
 
 }

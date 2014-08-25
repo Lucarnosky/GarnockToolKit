@@ -19,6 +19,14 @@ public class TabbedWindow extends GWindow{
 	 */
 	public TabbedWindow(){
 		super();
+		init();
+	}
+	
+	/**
+	 * Standard initialization of the tabbed window
+	 */
+	public void init(){
+		
 	}
 
 }

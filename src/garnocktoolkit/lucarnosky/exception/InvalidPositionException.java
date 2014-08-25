@@ -1,6 +1,6 @@
 package garnocktoolkit.lucarnosky.exception;
 
-public class InvalidPositionException extends RuntimeException{
+public class InvalidPositionException extends GException{
 
 	/**
 	 * InvalidPositionException 
@@ -8,13 +8,12 @@ public class InvalidPositionException extends RuntimeException{
 	 * while adding component
 	 * 
 	 * @author Matteo Lucarno
-	 * @version 1.0.0
+	 * @version 1.0.2
 	 */
 	private static final long serialVersionUID = 0;
 	
 	public InvalidPositionException(){
 		super("The specified position is invalid, please check the javadoc");
-		System.exit(-1);
 	}
 
 }
