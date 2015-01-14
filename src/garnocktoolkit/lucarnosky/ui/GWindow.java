@@ -169,7 +169,7 @@ public class GWindow extends JFrame{
 	}
 	
 	/**
-	 * Removes the component.
+	 * Removes the component at the specified location.
 	 *
 	 * @param location the location avaiable in the Location enum
 	 */
