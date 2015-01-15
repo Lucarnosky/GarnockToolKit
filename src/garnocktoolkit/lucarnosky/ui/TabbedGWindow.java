@@ -15,7 +15,12 @@ public class TabbedGWindow extends GWindow{
 	private static final long serialVersionUID = 0;
 	
 	/**
-	 * Instantiates a new tabbed window.
+	 * numberOfTab 
+	 */
+	protected int noOfTab = 2;
+	
+	/**
+	 * Instantiates a new tabbed Gwindow and initialize it.
 	 */
 	public TabbedGWindow(){
 		super();
@@ -23,11 +28,13 @@ public class TabbedGWindow extends GWindow{
 	}
 	
 	/**
-	 * Standard initialization of the tabbed window
+	 * Standard initialization of the tabbed Gwindow
 	 */
 	public void init(){
 		title = "Garnock Tool Kit Tabbed GWindow";
 		super.init();
 	}
+	
+	
 
 }
