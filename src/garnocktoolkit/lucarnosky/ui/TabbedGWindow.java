@@ -7,7 +7,7 @@ package garnocktoolkit.lucarnosky.ui;
  * @version 1.0.0
  */
 
-public class TabbedWindow extends GWindow{
+public class TabbedGWindow extends GWindow{
 
 	/**
 	 * 
@@ -17,7 +17,7 @@ public class TabbedWindow extends GWindow{
 	/**
 	 * Instantiates a new tabbed window.
 	 */
-	public TabbedWindow(){
+	public TabbedGWindow(){
 		super();
 		init();
 	}
@@ -26,7 +26,8 @@ public class TabbedWindow extends GWindow{
 	 * Standard initialization of the tabbed window
 	 */
 	public void init(){
-		
+		title = "Garnock Tool Kit Tabbed GWindow";
+		super.init();
 	}
 
 }
