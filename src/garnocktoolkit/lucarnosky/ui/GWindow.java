@@ -28,7 +28,7 @@ public class GWindow extends JFrame{
 	public static float BOTTOM_LOCATION = Component.BOTTOM_ALIGNMENT;
 	
 	/** Title of the window. */
-	protected String title;
+	protected String title = "Garnock Tool Kit GWindow";
 	
 	/** Enable or disable window resizing. */
 	protected boolean allowResize = true;
@@ -50,7 +50,7 @@ public class GWindow extends JFrame{
 	/**
 	 * GWindow default initialization.
 	 */
-	private void init(){
+	protected void init(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(200,200);
 		screenLocation(CENTER_LOCATION);
