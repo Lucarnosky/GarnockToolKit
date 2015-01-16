@@ -4,7 +4,13 @@ import java.awt.Point;
 
 public class Vector2d {
 
-	//Vector Axis
+	/**
+	 * Attempt to have a full working custom Vector System
+	 * @author Matteo Lucarno
+	 * @version 1.0.0
+	 */
+	
+	/**Vector Axis*/
 	public double x,y;
 	
 	public Vector2d (){
@@ -54,4 +60,24 @@ public class Vector2d {
 		y += vectorToAdd.y;
 	}
 	
+	/**
+	 * This function provide the intensity of the vector
+	 * @return the intensity of the vector2D
+	 */
+	public double getIntensity(){
+		return Math.sqrt( Math.pow(x, 2) + Math.pow(y, 2));
+	}
+	
+	/**
+	 * This function returns the direction of the vector
+	 * It should be read in degree 
+	 * 
+	 * @return the direction in degree
+	 */
+	public double getDirection(){
+		return Math.tan(x/y);
+	}
+	
+	
 }
+
