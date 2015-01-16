@@ -8,7 +8,6 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 
 import javax.swing.JFrame;
-import javax.tools.JavaCompiler;
 
 /**
  * The Class GWindow.

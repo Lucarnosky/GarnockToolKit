@@ -25,7 +25,7 @@ public class AssociativeArray<String,Object> {
 	
 	/** The size. */
 	int size = - 1;
-	/** The automatic key. */
+	/** The automatic index. */
 	int nIndex = 0;
 
 	/**
