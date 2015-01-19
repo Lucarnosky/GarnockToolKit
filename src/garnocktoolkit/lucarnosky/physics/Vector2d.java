@@ -81,6 +81,14 @@ public class Vector2d {
 	/**
 	 * This function provide the pointing way of the vector2D
 	 * It just help to realize how to rapresent the vector on a cartesian plane
+	 * i.e.
+	 * 			|
+	 * 	(-1,+1)	|	(+1,+1)
+	 * 			|
+	 * ---------------------
+	 * 			|
+	 * 	(-1,-1)	|	(+1,-1)
+	 * 			|
 	 * @return Point the x and y direction should read just the sign of the couple
 	 */
 	public Point getPointingDirection(){
@@ -101,6 +109,7 @@ public class Vector2d {
 		}
 		return new Point((int)px,(int)py);
 	}
+	
 	
 }
 
