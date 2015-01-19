@@ -7,31 +7,42 @@ public class Vector2d {
 	/**
 	 * Attempt to have a full working custom Vector System
 	 * @author Matteo Lucarno
-	 * @version 1.0.1
+	 * @version 1.0.3
 	 */
 	
 	/**Vector Axis*/
-	public double x,y;
+	public double x,y,xforce,yforce,intesity;
 	
 	public Vector2d (){
 		x = 0;
 		y = 0;
+		getIntensity();
 	}
 	
 	public Vector2d (double x, double y){
-		setCoord(x, y);
+		setOrigin(x, y);
 	}
 	
 	public Vector2d (Point origin){
-		setCoord(origin.x,origin.y);
+		setOrigin(origin.x,origin.y);
 	}
 	
-	public void setCoord(double x, double y){
+	public Vector2d (Point origin,double intensity){
+		setOrigin(origin.x,origin.y);
+		this.intesity = intensity;
+	}
+	
+	public Vector2d (Point origin,Point forces){
+		setOrigin(origin.x,origin.y);
+		
+	}
+	
+	public void setOrigin(double x, double y){
 		this.x = x;
 		this.y = y;
 	}
 	
-	public Point getCoord(){
+	public Point getOrigin(){
 		return new Point((int)x,(int) y);
 	}
 	
@@ -65,7 +76,15 @@ public class Vector2d {
 	 * @return double the intensity of the vector2D
 	 */
 	public double getIntensity(){
-		return Math.sqrt( Math.pow(x, 2) + Math.pow(y, 2));
+		
+		return intesity;
+	}
+	
+	/**
+	 * Calculate the intensity of the vector
+	 */
+	public void calculateIntensity(){
+		intesity = Math.sqrt(Math.pow(xforce - x , 2) + Math.pow(yforce - y, 2));
 	}
 	
 	/**
@@ -85,7 +104,7 @@ public class Vector2d {
 	 * 			|
 	 * 	(-1,+1)	|	(+1,+1)
 	 * 			|
-	 * ---------------------
+	 * ---------|-----------
 	 * 			|
 	 * 	(-1,-1)	|	(+1,-1)
 	 * 			|
@@ -110,6 +129,68 @@ public class Vector2d {
 		return new Point((int)px,(int)py);
 	}
 	
+	/**
+	 * Same as @see getPointingDirection()
+	 * but instead returning a point it returns the quadrant where the vector is pointing
+	 * i.e.
+	 * 			|
+	 * 	  2		|	  1
+	 * 			|
+	 * ---------|-----------
+	 * 			|
+	 * 	  3		|	  4
+	 * 			|
+	 * @return int the number of the quadrant as specified in the example, 0 if it's pointing on an axis
+	 */
+	public int getPointingDirectionToString(){
+		int quadrant;
+		if(x > 0 && y > 0)
+			quadrant = 1;
+		else if(x < 0 && y > 0)
+			quadrant = 2;
+		else if(x < 0 && y < 0)
+			quadrant = 3;
+		else if(x > 0 && y < 0)
+			quadrant = 4;
+		else
+			quadrant = 0;
+		return quadrant;
+	}
 	
+	/**
+	 * getAngle 
+	 * calculate the angle created between the vector and the X axis
+	 * @return double the angle in degree
+	 */
+	public double getAngle(){
+		return Math.toDegrees(Math.atan2(y, x));
+	}
+	
+	/**
+	 * getAngleBetween
+	 * calculate the angle created between the vector and another vector
+	 * @return double the angle in degree
+	 */
+	public double getAngleBetween(Vector2d vector){
+		return Math.toDegrees(Math.atan((vector.yforce-yforce)/(vector.xforce-xforce)));
+	}
+	
+	/**
+	 * setIntensity
+	 * @param the final intensity of the vector
+	 */
+	public void setIntensity(double intensity){
+		this.intesity = intensity;
+	}
+	
+	/**
+	 * setAxisIntensity
+	 * @param the intensity of the x component
+	 * @param the intensity of the y component
+	 */
+	public void setAxisIntensity(double xforce, double yforce){
+		this.xforce = xforce;
+		this.yforce = yforce;
+	}
 }
 
